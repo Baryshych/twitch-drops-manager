@@ -1,1 +1,1 @@
-export { StreamModel } from "./stream.model";
+export { StreamModel } from './stream.model';

@@ -1,13 +1,13 @@
 import { join } from 'path';
 import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
-import { AppController, TwitchController } from './controllers';
-import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { GraphQLModule } from '@nestjs/graphql';
+import { AppController, TwitchController } from './controllers';
+import { AppService } from './app.service';
 import { Stream, ViewerData, DropItem } from './repositories';
 import { TwitchService } from './services/twitch.service';
-import { GraphQLModule } from '@nestjs/graphql';
 import { StreamsResolver } from './resolvers';
 
 const isDev = process.env.NODE_ENV !== 'production';
