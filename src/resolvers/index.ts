@@ -1,1 +1,2 @@
-export { StreamsResolver } from './stream.resolvers';
+export { StreamResolver } from './stream.resolver';
+export { DropResolver } from './drop.resolver';

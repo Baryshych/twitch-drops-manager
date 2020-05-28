@@ -7,8 +7,8 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { AppController, TwitchController } from './controllers';
 import { AppService } from './app.service';
 import { Stream, ViewerData, DropItem } from './repositories';
-import { TwitchService } from './services/twitch.service';
-import { StreamsResolver } from './resolvers';
+import { TwitchService, DropService } from './services';
+import { StreamResolver, DropResolver } from './resolvers';
 
 const isDev = process.env.NODE_ENV !== 'production';
 
@@ -38,6 +38,6 @@ const isDev = process.env.NODE_ENV !== 'production';
     }),
   ],
   controllers: [AppController, TwitchController],
-  providers: [AppService, TwitchService, StreamsResolver],
+  providers: [AppService, TwitchService, DropService, StreamResolver, DropResolver],
 })
 export class AppModule {}

@@ -5,7 +5,7 @@ import { StreamModel } from '../models';
 // import { TwitchService } from '../services';
 
 @Resolver((of) => StreamModel)
-export class StreamsResolver {
+export class StreamResolver {
   constructor(
     // private twitchService: TwitchService,
   ) {}
