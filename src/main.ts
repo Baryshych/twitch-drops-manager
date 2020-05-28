@@ -1,5 +1,4 @@
 import { NestFactory } from '@nestjs/core';
-import TwitchJs from 'twitch-js';
 import { AppModule } from './app.module';
 
 async function bootstrap() {

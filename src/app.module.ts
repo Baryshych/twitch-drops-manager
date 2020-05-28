@@ -1,5 +1,5 @@
 import { join } from 'path';
-import { Module } from '@nestjs/common';
+import { Module, HttpModule } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
@@ -14,6 +14,7 @@ const isDev = process.env.NODE_ENV !== 'production';
 
 @Module({
   imports: [
+    HttpModule,
     ConfigModule.forRoot(),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, 'client'),
@@ -38,6 +39,12 @@ const isDev = process.env.NODE_ENV !== 'production';
     }),
   ],
   controllers: [AppController, TwitchController],
-  providers: [AppService, TwitchService, DropService, StreamResolver, DropResolver],
+  providers: [
+    AppService,
+    TwitchService,
+    DropService,
+    StreamResolver,
+    DropResolver,
+  ],
 })
 export class AppModule {}

@@ -1,12 +1,12 @@
 import { Controller, Get } from '@nestjs/common';
-import { TwitchService } from '../services/twitch.service';
+import { TwitchService } from '../services';
 
 @Controller('twitch')
 export class TwitchController {
   constructor(private readonly twitchService: TwitchService) {}
 
   @Get('/viewers')
-  getViewers(): string {
-    return this.twitchService.getViewers();
+  pickRandomViewer(): any {
+    return this.twitchService.pickRandomViewer();
   }
 }
