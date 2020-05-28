@@ -1,1 +1,1 @@
-export { StreamsResolver } from "./stream.resolvers"
+export { StreamsResolver } from './stream.resolvers';

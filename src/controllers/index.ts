@@ -1,2 +1,2 @@
-export { TwitchController } from "./twitch.controller";
-export { AppController } from "./app.controller";
+export { TwitchController } from './twitch.controller';
+export { AppController } from './app.controller';

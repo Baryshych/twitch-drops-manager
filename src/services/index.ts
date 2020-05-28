@@ -1,1 +1,1 @@
-export { TwitchService } from "./twitch.service"
+export { TwitchService } from './twitch.service';
