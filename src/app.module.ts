@@ -17,7 +17,8 @@ const isDev = process.env.NODE_ENV !== 'production';
     HttpModule,
     ConfigModule.forRoot(),
     ServeStaticModule.forRoot({
-      rootPath: join(__dirname, 'client'),
+      rootPath: join(__dirname, '..', 'client'),
+      exclude: ['/api*'],
     }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
