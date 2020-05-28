@@ -1,10 +1,13 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column, Model, Table, PrimaryKey, AutoIncrement,
+} from 'sequelize-typescript';
 
-@Entity()
-export class ViewerData {
-  @PrimaryGeneratedColumn()
+@Table
+export class ViewerData extends Model<ViewerData> {
+  @PrimaryKey
+  @Column
   twitchUsername: string;
 
-  @Column()
+  @Column
   tradeLink: string;
 }

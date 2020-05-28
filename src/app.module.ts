@@ -2,7 +2,7 @@ import { join } from 'path';
 import { Module } from '@nestjs/common';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { ConfigModule } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { SequelizeModule } from '@nestjs/sequelize';
 import { GraphQLModule } from '@nestjs/graphql';
 import { AppController, TwitchController } from './controllers';
 import { AppService } from './app.service';
@@ -18,16 +18,17 @@ const isDev = process.env.NODE_ENV !== 'production';
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, 'client'),
     }),
-    TypeOrmModule.forRoot({
-      type: 'postgres',
+    SequelizeModule.forRoot({
+      dialect: 'postgres',
       host: process.env.DATABASE_HOST,
       port: 5432,
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME_DEV,
-      entities: [Stream, ViewerData, DropItem],
+      models: [Stream, ViewerData, DropItem],
       synchronize: true,
-      autoLoadEntities: true,
+      autoLoadModels: true,
+      logging: false,
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: true,

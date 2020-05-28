@@ -1,13 +1,17 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column, Model, Table, PrimaryKey, AutoIncrement,
+} from 'sequelize-typescript';
 
-@Entity()
-export class DropItem {
-  @PrimaryGeneratedColumn()
+@Table
+export class DropItem extends Model<DropItem> {
+  @PrimaryKey
+  @AutoIncrement
+  @Column
   id: number;
 
-  @Column()
+  @Column
   name: string;
 
-  @Column()
+  @Column
   imageLink: string;
 }

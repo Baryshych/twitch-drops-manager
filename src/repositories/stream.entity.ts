@@ -1,13 +1,17 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  AutoIncrement, Column, Model, PrimaryKey, Table,
+} from 'sequelize-typescript';
 
-@Entity()
-export class Stream {
-  @PrimaryGeneratedColumn()
+@Table
+export class Stream extends Model<Stream> {
+  @PrimaryKey
+  @AutoIncrement
+  @Column
   id: number;
 
-  @Column()
+  @Column
   name: string;
 
-  @Column({ default: true })
+  @Column({ defaultValue: true })
   isActive: boolean;
 }
