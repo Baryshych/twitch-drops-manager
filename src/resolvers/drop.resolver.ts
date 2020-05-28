@@ -20,10 +20,10 @@ export class DropResolver {
     const dropItem = await DropItem.findByPk(dropId);
     if (!dropItem) throw new Error('No drop found');
     if (dropItem.viewer) throw new Error('Drop already has viewer');
-    const viewer = await this.twitchService.pickRandomViewer(channel);
-    dropItem.viewer = viewer;
+    const id = await this.twitchService.pickRandomViewer(channel);
+    dropItem.viewer = id;
     await dropItem.save();
-    return viewer;
+    return id;
     // return this.dropService.pickWinner(dropId);
   }
 
